@@ -25,8 +25,12 @@ jobs:
         run: npm install
 
       - name: Build Next.js
-        run: npx ru build
-      
+        run: npx run build
+
+      - name: Check output folder (Debug)
+        # เพิ่มบรรทัดนี้เพื่อดูว่าบน GitHub มันสร้าง out มาให้จริงไหม
+        run: ls -R out
+        
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
