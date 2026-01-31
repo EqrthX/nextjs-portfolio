@@ -3,6 +3,7 @@ import { useCallback } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { getAssetPath } from '@/libs/GetAssetPath'
 
 interface ImageSliderProps {
   images: string[]
@@ -42,7 +43,7 @@ export default function ImageSlider({ images }: ImageSliderProps) {
             >
               {/* 3. Slide Item */}
               <img
-                src={src}
+                src={getAssetPath(src)}
                 alt={`Slide ${index}`}
                 className="object-cover" // สำคัญ: ช่วยให้รูปไม่เบี้ยวแม้อัตราส่วนจอจะเปลี่ยน
               />

@@ -1,5 +1,6 @@
 'use client'
 import { ProjectDatas } from '@/data/ProjectData';
+import { getAssetPath } from '@/libs/GetAssetPath';
 import { TypingEffect } from '@/libs/TypeEffect';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -25,7 +26,7 @@ export default function Projects() {
                 <div className="w-full h-48 bg-gray-800 rounded-xl mb-6 overflow-hidden relative">
                   {project.images && project.images.length > 0 ? (
                     <Image
-                      src={project.images[0]}
+                      src={getAssetPath(project.images[0])}
                       alt={project.name}
                       fill
                       className="object-cover hover:scale-105 transition-transform duration-500"
