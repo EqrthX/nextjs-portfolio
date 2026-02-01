@@ -1,5 +1,4 @@
-// src/components/layout/Navbar.tsx
-'use client' // ต้องมีบรรทัดนี้ เพราะเราใช้ useState
+'use client'
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -11,12 +10,11 @@ export default function Navbar() {
     // ฟังก์ชันสลับสถานะ เปิด/ปิด
     const toggleMenu = () => setIsOpen(!isOpen);
 
-    // รายการเมนู (เก็บเป็น Array จะได้แก้ที่เดียว)
     const menuItems = [
-        { name: 'Hero', href: '#hero' },
-        { name: 'About', href: '#about'},
-        { name: 'Projects', href: '#projects' },
-        { name: 'Learning Journey', href: '#learingJourney'}
+        { name: 'Hero', href: '/#hero' },
+        { name: 'About', href: '/#about'},
+        { name: 'Projects', href: '/#projects' },
+        { name: 'Learning Journey', href: '/#learingJourney'}
     ];
 
     return (
@@ -27,7 +25,7 @@ export default function Navbar() {
                     {/* 1. Logo */}
                     <div className="shrink-0">
                         <h1 className="uppercase font-bold text-lg tracking-widest text-zinc-100 cursor-pointer hover:text-amber-400 transition-colors">
-                            <Link href="#hero">Nontprawitch</Link>
+                            <Link href="/">Nontprawitch</Link>
                         </h1>
                     </div>
 
@@ -38,7 +36,7 @@ export default function Navbar() {
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className="cursor-pointer text-sm font-medium text-zinc-400 hover:text-amber-400 hover:scale-130 transition-all"
+                                    className="cursor-pointer text-sm font-medium text-zinc-400 hover:text-amber-400 hover:scale-105 transition-all" // ปรับ scale เป็น 105 พอครับ 130 จะใหญ่ไป
                                 >
                                     {item.name}
                                 </Link>
@@ -52,7 +50,6 @@ export default function Navbar() {
                             onClick={toggleMenu}
                             className="text-zinc-400 hover:text-white focus:outline-none"
                         >
-                            {/* ถ้าเปิดอยู่โชว์รูป X (Close), ถ้าปิดอยู่โชว์รูป 3 ขีด (Menu) */}
                             {isOpen ? (
                                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -67,7 +64,7 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* 4. Mobile Menu Dropdown (AnimatePresence เพื่อให้ตอนปิดมี Animation) */}
+            {/* 4. Mobile Menu Dropdown */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -81,7 +78,7 @@ export default function Navbar() {
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    onClick={() => setIsOpen(false)} // กดแล้วปิดเมนูทันที
+                                    onClick={() => setIsOpen(false)}
                                     className="block px-3 py-2 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors"
                                 >
                                     {item.name}
