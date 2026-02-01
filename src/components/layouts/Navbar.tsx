@@ -25,8 +25,8 @@ export default function Navbar() {
                 <div className="flex items-center justify-between h-16">
 
                     {/* 1. Logo */}
-                    <div className="flex-shrink-0">
-                        <h1 className="uppercase font-bold text-lg tracking-widest text-zinc-100 cursor-pointer hover:text-blue-400 transition-colors">
+                    <div className="shrink-0">
+                        <h1 className="uppercase font-bold text-lg tracking-widest text-zinc-100 cursor-pointer hover:text-amber-400 transition-colors">
                             <Link href="#hero">Nontprawitch</Link>
                         </h1>
                     </div>
@@ -38,7 +38,7 @@ export default function Navbar() {
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className="text-sm font-medium text-zinc-400 hover:text-blue-400 transition-colors"
+                                    className="cursor-pointer text-sm font-medium text-zinc-400 hover:text-amber-400 hover:scale-130 transition-all"
                                 >
                                     {item.name}
                                 </Link>
